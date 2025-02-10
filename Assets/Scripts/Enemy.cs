@@ -21,19 +21,16 @@ public class Enemy : MonoBehaviour
             float randomX = Random.Range(-8f, 8f);
             transform.position = new Vector3(randomX, 7, 0);
         }
-        //move down at 4 meters per second
-        //if at bottom of screen
-        //respawn at top (with new random X pos
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //if other is player
-        //Damage the player
-        //Destroy enemy
+       
         if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
+            
             if (player != null)
             {
                 player.Damage();
@@ -42,9 +39,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        //if other is laser
-        //Destroy laser
-        //Destroy enemy
+        
         if (other.tag == "Laser")
         {
             Destroy(other.gameObject);
