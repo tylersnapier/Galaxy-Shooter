@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,6 +15,7 @@ public class Player : MonoBehaviour
     private int _lives = 3;
 
     private SpawnManager _spawnManager;
+   
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -66,8 +66,6 @@ public class Player : MonoBehaviour
     public void Damage()
     {
         _lives -= 1;
-
-        
 
         if (_lives < 1)
         {
