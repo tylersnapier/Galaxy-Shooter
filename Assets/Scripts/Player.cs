@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -80,13 +81,7 @@ public class Player : MonoBehaviour
 
         
 
-        //if space key pressed
-        //if _TripleShotActive is true
-            //fire 3 Lasers (TripleShot prefab)
         
-        //else fire 1 Laser
-
-        //Instantiate 3 Lasers (TripleShot prefab
     }
 
     public void Damage()
@@ -102,6 +97,10 @@ public class Player : MonoBehaviour
 
     public void TripleShotActive()
     {
+
+        _tripleShotActive = true;
+
+        StartCoroutine(TripleShotPowerDownRoutine());   
         //tripleShotActive becomes true
         //start the power down coroutine for triple shot
         
@@ -110,6 +109,13 @@ public class Player : MonoBehaviour
     //IEnumerator TripleShotPowerDownRoutine
     //wait 5 seconds
     //set the triple shot to false
+
+    IEnumerator TripleShotPowerDownRoutine()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        _tripleShotActive = false;
+    }
 
 }
 
