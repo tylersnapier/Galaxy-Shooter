@@ -6,6 +6,9 @@ public class Powerup : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3f;
+
+    [SerializeField] //0 = TripleShot 1 = Speed 2 = Shields
+    private int _powerupID;
     void Start()
     {
         
@@ -20,8 +23,7 @@ public class Powerup : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //move down at speed of 3 (adjust in the Inspector)
-        //Destroy object when leaves screen
+        
        
     }
 
@@ -29,14 +31,27 @@ public class Powerup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //Communicate with the Player script
-            //handle the component I want
-            //assign the handle to the component
+            
             Player player = other.transform.GetComponent<Player>();
 
-            if (player != null)
+            if (_powerupID == 0)
             {
+                
                 player.TripleShotActive();
+                //else if _powerupID is 1
+                //play speed powerup
+                //else if _powerupID is 2
+                //play shields powerup
+            }
+
+            else if (_powerupID == 1)
+            {
+                Debug.Log("Speed boost collected");
+            }
+
+            else if (_powerupID == 2)
+            {
+                Debug.Log("Shields collected");
             }
 
 

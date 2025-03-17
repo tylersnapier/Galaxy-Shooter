@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private float _canFire = 0f;
     [SerializeField]
     private bool _tripleShotActive = false;
-    //variable of _isTripleShotActive
+   
     [SerializeField]
     private int _lives = 3;
 
@@ -101,14 +101,11 @@ public class Player : MonoBehaviour
         _tripleShotActive = true;
 
         StartCoroutine(TripleShotPowerDownRoutine());   
-        //tripleShotActive becomes true
-        //start the power down coroutine for triple shot
+       
         
     }
 
-    //IEnumerator TripleShotPowerDownRoutine
-    //wait 5 seconds
-    //set the triple shot to false
+    
 
     IEnumerator TripleShotPowerDownRoutine()
     {
