@@ -41,7 +41,7 @@ public class Powerup : MonoBehaviour
                 //else if _powerupID is 1
                 //play speed powerup
                 //else if _powerupID is 2
-                //play shields powerup
+                //play shields powerup 
             }
 
             else if (_powerupID == 1)
@@ -58,7 +58,5 @@ public class Powerup : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    //OnTriggerCollision
-    //Only be collected by the Player (HINT: Use Tags)
-    //On collected, Destroy
+    
 }
