@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     private bool _isShieldsActive = false;
 
     [SerializeField]
+    private GameObject _shieldVisualizer;
+
+    [SerializeField]
     private int _lives = 3;
 
     private SpawnManager _spawnManager;
@@ -102,7 +105,9 @@ public class Player : MonoBehaviour
         if (_isShieldsActive == true)
         {
             _isShieldsActive = false;
+            _shieldVisualizer.SetActive(false);
             return;
+            //turn off shield visualizer
         }
 
         _lives -= 1;
@@ -150,7 +155,8 @@ public class Player : MonoBehaviour
     public void ShieldsActive()
     {
         _isShieldsActive = true;
-        //add shield visual
+        _shieldVisualizer.SetActive(true);
+        //enable shield visualizer
     }
 
 }
