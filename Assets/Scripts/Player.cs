@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject _shieldVisualizer;
+    [SerializeField]
+    private int _score;
 
     [SerializeField]
     private int _lives = 3;
@@ -158,6 +160,9 @@ public class Player : MonoBehaviour
         _shieldVisualizer.SetActive(true);
         //enable shield visualizer
     }
+
+    //method to add 10 to score
+    //communicate with UI to update score
 
 }
 
