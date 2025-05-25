@@ -6,12 +6,12 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    //handle to Text
-    private Text _scoreText;
+    [SerializeField]
+    private TMP_Text _scoreText;
     // Start is called before the first frame update
     void Start()
     {
-        _scoreText.text = "Score:" + 0;
+        _scoreText.text = "Score: ";
     }
 
     public void UpdateScore(int playerScore)
