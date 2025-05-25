@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -161,8 +162,11 @@ public class Player : MonoBehaviour
         //enable shield visualizer
     }
 
-    //method to add 10 to score
-    //communicate with UI to update score
+    public void AddScore(int points)
+    {
+        _score += points;
+        _uiManager.UpdateScore(_score);
+    }
 
 }
 
