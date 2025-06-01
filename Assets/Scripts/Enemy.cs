@@ -7,9 +7,23 @@ public class Enemy : MonoBehaviour
     private float _enemySpeed = 4f;
 
     private Player _player;
+    private Animator _anim;
+
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+        //null check player
+        if (_player == null )
+        {
+            Debug.LogError("The Player is NULL");
+        }
+        //assign the component to anim
+        _anim = GetComponent<Animator>();
+
+        if (_anim == null )
+        {
+            Debug.LogError("The animator is NULL");
+        }
     }
 
     
@@ -36,8 +50,10 @@ public class Enemy : MonoBehaviour
             {
                 player.Damage();
             }
-            
-            Destroy(this.gameObject);
+            _anim.SetTrigger("OnEnemyDeath");
+            _enemySpeed = 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+            Destroy(this.gameObject, 2.8f); 
         }
 
         
@@ -49,7 +65,9 @@ public class Enemy : MonoBehaviour
             {
                 _player.AddScore(10);
             }
-            Destroy(this.gameObject);
+            _anim.SetTrigger("OnEnemyDeath");
+            _enemySpeed = 0;
+            Destroy(this.gameObject, 2.8f);
         }
     }
 }
